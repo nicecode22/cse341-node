@@ -53,6 +53,42 @@
             font-size: 25px;
             font-family: Verdana, Geneva, Tahoma, sans-serif;
         }
+        /*form*/
+        .form {
+            width: 20rem;
+            max-width: 90%;
+            margin: auto;
+        }
+        .form-control label,
+        .form-control input {
+            display: block;
+            width: 100%;
+        }
+        .form-control input {
+            border: 1px solid #3E1F47;
+            border-radius: 5px;
+        }
+        .form-control label {
+            color: #0B525B;
+        }
+        .form-control {
+            margin: 1em 0;
+        }
+        button {
+            font-size: 20px;
+            color: white;
+            background-color: #0B525B;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #3E1F47;
+            
+        }
+        button:active {
+            background-color: #B93CB9;
+            color: black;
+        }
     </style>
 </head>
 <body>
@@ -60,13 +96,17 @@
         <nav class="main-header-nav">
             <ul class="main-header-ul">
                 <li class="main-header-li"><a href="/">Shop</a></li>
-                <li class="main-header-li"><a href="/add-product" class="active">Add Product</a></li>
+                <li class="main-header-li"><a href="/admin/add-product" class="active">Add Product</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <form action="/add-product" method="POST">
-            <input type="text" name="title">
+        <form class="form" action="/admin/add-product" method="POST">
+            <div class="form-control">
+                <label for="title">Title</label>
+                    <input type="text" name="title" id="title">
+            </div>
+            
             <button type="submit">Add Product</button>
         </form>
     </main>
