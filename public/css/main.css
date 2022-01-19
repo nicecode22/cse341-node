@@ -76,6 +76,7 @@ button {
     background-color: #0B525B;
     padding: 5px;
     border-radius: 5px;
+    margin: 20px;
 }
 button:hover {
     background-color: #3E1F47;
@@ -95,6 +96,7 @@ button:active {
 
 .card {
     box-shadow: 0 2px 8px #3E1F47;
+    width: 30%;
 }
 
 .card-header,
@@ -108,9 +110,12 @@ button:active {
 .card-content p {
     margin: 0;
 }
-
+.card-content p {
+    font-size: 20px;
+}
 .card-image {
-    width: 100%;
+    width: 50%;
+    margin: 0 auto;
 }
 
 .card-image img {
