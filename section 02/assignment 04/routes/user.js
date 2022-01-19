@@ -10,7 +10,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
     const users = adminData.users;
     res.render('user', {
-        prods: users, 
+        users: users, 
         pageTitle: 'All Users', 
         path: '/'
     });

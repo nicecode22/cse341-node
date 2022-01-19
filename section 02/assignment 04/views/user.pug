@@ -3,8 +3,12 @@ extends layout/main-layout.pug
 block styles 
     link(rel="stylesheet", href="/css/main.css")
 block content
-    h1 Users
-    p List of users
-    div.list
-        ol.list-ol
-            li.list-ol-li
+    if users.length > 0
+        h1 Users
+        p List of users
+            each user in users
+                div.list
+                    ol.list-ol
+                        li.list-ol-li #{user.title}
+    else 
+        h1 No users registered
