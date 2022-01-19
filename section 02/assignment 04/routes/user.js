@@ -12,7 +12,9 @@ router.get('/', (req, res, next) => {
     res.render('user', {
         users: users, 
         pageTitle: 'All Users', 
-        path: '/'
+        path: '/',
+        hasUsers: users.length > 0,
+        mainCSS: true
     });
 });
 
