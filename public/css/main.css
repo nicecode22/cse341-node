@@ -47,7 +47,9 @@ p {
     font-size: 25px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-
+.centered {
+    text-align: center;
+}
 /*-------------------------form--------------------------------------*/
 .form {
     width: 20rem;
@@ -55,13 +57,20 @@ p {
     margin: auto;
 }
 .form-control label,
-.form-control input {
+.form-control input,
+.form-control textarea {
     display: block;
     width: 100%;
+    margin-bottom: 0.25rem;
 }
-.form-control input {
+.form-control input
+.form-control textarea {
     border: 1px solid #3E1F47;
     border-radius: 5px;
+}
+.form-control input:focus,
+.form-control textarea:focus {
+outline-color: #B93CB9;
 }
 .form-control label {
     color: #0B525B;
@@ -70,7 +79,7 @@ p {
     margin: 1em 0;
 }
 /*----------------------------button--------------------------------*/
-button {
+.btn {
     font-size: 20px;
     color: white;
     background-color: #0B525B;
@@ -78,11 +87,14 @@ button {
     border-radius: 5px;
     margin: 20px;
 }
-button:hover {
+.btn:hover {
     background-color: #3E1F47;
 
 }
-button:active {
+.btn a {
+    text-decoration: none;
+}
+.btn:active {
     background-color: #B93CB9;
     color: black;
 }
