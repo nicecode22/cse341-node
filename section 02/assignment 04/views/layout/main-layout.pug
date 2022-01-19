@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title #{pageTitle}
+        block styles
+    body 
+        header.main-header
+            nav.main-header-nav
+                ul.main-header-ul
+                    li.main-header-li
+                        a(href="/", class=(path === '/' ? 'active' : '')) Users
+                    li.main-header-li
+                        a(href="/admin/add-user", class=(path === '/admin/add-product' ? 'active' : '')) Add New User
+
+        block content

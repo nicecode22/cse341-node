@@ -9,13 +9,10 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
     const users = adminData.users;
-    res.render('users', {
+    res.render('user', {
         prods: users, 
         pageTitle: 'All Users', 
-        path: '/', 
-        hasUsers: users.length > 0, 
-        activeUser: true,
-        mainCSS: true
+        path: '/'
     });
 });
 
