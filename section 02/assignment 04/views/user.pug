@@ -5,10 +5,10 @@ block styles
 block content
     if users.length > 0
         h1 Users
-        p List of users
+        p.text List of users
             each user in users
                 div.list
-                    ol.list-ol
+                    ul.list-ul
                         li.list-ol-li #{user.title}
     else 
         h1 No users registered

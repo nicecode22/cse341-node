@@ -2,11 +2,14 @@
     padding: 0;
     margin: 0;
 }
+body {
+    background-color: #ffe8d4;
+}
 /*------------------header-----------------------------*/
 .main-header {
     width: 100%;
     height: 56px;
-    background-color: #B93CB9;
+    background-color: #45062e;
     padding: 0 30px;
 }
 .main-header-nav {
@@ -31,7 +34,7 @@
 .main-header-li a:hover,
 .main-header-li a:active,
 .main-header-li a.active {
-    color: #3E1F47;
+    color: #e5a4cb;
 }
 /*--------------------------------main---------------------------------*/
 main {
@@ -41,7 +44,7 @@ h1 {
     font-family: 'Times New Roman', Times, serif;
     font-size: 70px;
     text-align: center;
-    color: #0B525B;
+    color: #7f055f;
 }
 p {
     font-size: 25px;
@@ -60,11 +63,12 @@ p {
     width: 100%;
 }
 .form-control input {
-    border: 1px solid #3E1F47;
+    border: 2px solid #45062e;
     border-radius: 5px;
 }
 .form-control label {
-    color: #0B525B;
+    color: #7f055f;
+    font-size: 30px;
 }
 .form-control {
     margin: 1em 0;
@@ -73,56 +77,24 @@ p {
 button {
     font-size: 20px;
     color: white;
-    background-color: #0B525B;
-    padding: 5px;
+    background-color: #e5a4cb;
+    padding: 10px;
     border-radius: 5px;
+    border: 1px solid #45062e;
 }
 button:hover {
-    background-color: #3E1F47;
+    background-color: #7f055f;
 
 }
 button:active {
-    background-color: #B93CB9;
     color: black;
 }
 /*--------------------------------------------------------------------*/
-.grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: stretch;
+.text {
+    font-size: 25px;
+    margin: 0 20px;
 }
 
-.card {
-    box-shadow: 0 2px 8px #3E1F47;
-}
-
-.card-header,
-.card-content {
-    padding: 1rem;
-}
-
-.card-header h1,
-.card-content h1,
-.card-content h2,
-.card-content p {
-    margin: 0;
-}
-
-.card-image {
-    width: 100%;
-}
-
-.card-image img {
-    width: 100%;
-}
-
-.card-actions {
-    padding: 1rem;
-    text-align: center;
-}
-
-.card-actions button,
-.card-actions a {
-    margin: 0 0.25rem;
+.list {
+    margin: 0 50px;
 }
