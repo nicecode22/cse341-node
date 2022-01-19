@@ -9,7 +9,7 @@ const router = express.Router();
 const users = [];
 
 router.get('/add-user', (req, res, next) => {
-    res.render('add-user', { pageTitle: 'Add New User', path: '/admin/add-user', mainCSS: true });
+    res.render('add-user', { pageTitle: 'Add New User', path: '/admin/add-user', activeAddUser: true, mainCSS: true });
 });
 
 router.post('/add-user', (req, res, next) => {

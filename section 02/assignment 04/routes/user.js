@@ -14,6 +14,7 @@ router.get('/', (req, res, next) => {
         pageTitle: 'All Users', 
         path: '/',
         hasUsers: users.length > 0,
+        activeUser: true,
         mainCSS: true
     });
 });
