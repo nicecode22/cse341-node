@@ -1,4 +1,3 @@
-const { redirect } = require('express/lib/response');
 const Product = require('../models/product')
 
 exports.getAddProduct = (req, res, next) => {
@@ -44,7 +43,13 @@ exports.postEditProduct = (req, res, next) => {
     const updatedImage = req.body.imageUrl;
     const updatedPrice = req.body.price;
     const updatedDescription = req.body.description;
-    const updatedProd = new Product(prodId, updatedTitle, updatedImage, updatedPrice, updatedDescription);
+    const updatedProd = new Product(
+        prodId, 
+        updatedTitle, 
+        updatedImage, 
+        updatedPrice, 
+        updatedDescription
+        );
     updatedProd.save();
     res.redirect('/admin/products');
 };
