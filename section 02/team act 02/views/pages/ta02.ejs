@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <% include ../includes/header.ejs %>
+</head>
+
+<body>
+    <% include ../includes/nav.ejs %>
+        <div class="jumbotron text-center">
+            <div class="container">
+                <h1>
+                    <%= title %>
+                </h1>
+                <div>
+                    <p>Add Users</p>
+                    <!-- REQ. 1 -->
+                    <form action="/ta02/addUser" method="POST">
+                        <input type="text" name="user" style="color: black;" />
+                        <button type="submit" style="color: black;">Add User</button>
+                    </form>
+                </div>
+                <div>
+                    <p>Remove Users</p>
+                    <!-- REQ. 3 -->
+                    <form action="/ta02/removeUser" method="POST">
+                        <input type="text" name="user" style="color: black;" />
+                        <button type="submit" style="color: black;">Remove User</button>
+                    </form>
+                </div>
+
+                <!-- REQ. 2 -->
+                <div>
+                    <% for(user of users) { %>
+                        <p>
+                            <%= user %>
+                        </p>
+                        <% } %>
+                </div>
+
+                <div>
+                    <p>
+                    <% if (message) {  %>
+                        NOT FOUND
+                        <%}%>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="container"></div>
+</body>
+
+</html>
