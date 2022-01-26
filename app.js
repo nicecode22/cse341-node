@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const errorController = require('./controllers/error404');
-const mConnect = require('./help/database');
+const mConnect = require('./help/database').mongoConnect;
 
 const app = express();
 
@@ -26,6 +26,7 @@ app.use((req, res, next) => {
 //            next(1);
 //        })
 //        .catch(err => console.log(err));
+    next();
 });
 
 app.use('/admin', adminRoutes);
