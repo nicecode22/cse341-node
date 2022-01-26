@@ -1,8 +1,4 @@
-//const fs = require('fs');
-//const path = require('path');
-//const Cart = require('./cart');
-
-const mongoConnect = require('../help/database');
+const getDb = require('../help/database').getDb;
 
 class Product {
     constructor(title, imageUrl, price, description) {

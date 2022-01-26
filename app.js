@@ -33,9 +33,6 @@ app.use('/admin', adminRoutes);
 
 app.use(errorController.getErrorPage);
 
-mConnect(client => {
-    console.log(client);
+mConnect(() => {
     app.listen(3000);
 });
-
-//app.listen(3000);   
