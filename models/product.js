@@ -14,11 +14,11 @@ class Product {
         const db = getDb();
         let dbOp;
         if (this._id) {
-            dbOp = db.collection('products').updateOne({_id: new mongoDb.ObjectId(this._id)}, {$set: this});
-        } else {
             dbOp = db
-            .collection('products')
-            .insertOne(this);
+                .collection('products')
+                .updateOne({_id: new mongoDb.ObjectId(this._id)}, {$set: this});
+        } else {
+            dbOp = db.collection('products').insertOne(this);
         }
         return dbOp
             .then(result => {
@@ -57,7 +57,7 @@ class Product {
             })
             .catch(err => {
                 console.log(err);
-            })
+            });
     }
 }
 
