@@ -1,7 +1,21 @@
-const fs = require('fs');
-const path = require('path');
-const Cart = require('./cart');
+//const fs = require('fs');
+//const path = require('path');
+//const Cart = require('./cart');
 
+const mongoConnect = require('../help/database');
+
+class Product {
+    constructor(title, imageUrl, price, description) {
+        this.title = title;
+        this.imageUrl = imageUrl;
+        this.price = price;
+        this.description = description;
+    }
+
+    save() {
+
+    }
+}
 const p = path.join(
     path.dirname(require.main.filename), 
     'data', 
