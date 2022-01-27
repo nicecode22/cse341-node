@@ -43,7 +43,7 @@ class Product {
             .catch(err => {
                 console.log(err);
             });
-    };
+    }
 
 
     static findById(prodId) {
