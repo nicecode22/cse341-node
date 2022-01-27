@@ -2,12 +2,13 @@ const mongoDb = require('mongodb');
 const getDb = require('../help/database').getDb;
 
 class Product {
-    constructor(title, imageUrl, price, description, id) {
+    constructor(title, imageUrl, price, description, id, userId) {
         this.title = title;
         this.imageUrl = imageUrl;
         this.price = price;
         this.description = description;
-        this._id = id;
+        this._id = id ? new mongoDb.ObjectId(id) : null;
+        this.userId = userId;
     }
 
     save() {
@@ -16,7 +17,7 @@ class Product {
         if (this._id) {
             dbOp = db
                 .collection('products')
-                .updateOne({_id: new mongoDb.ObjectId(this._id)}, {$set: this});
+                .updateOne({_id: this._id}, {$set: this});
         } else {
             dbOp = db.collection('products').insertOne(this);
         }
@@ -57,6 +58,19 @@ class Product {
             })
             .catch(err => {
                 console.log(err);
+            });
+    }
+
+    static deleteById(prodId) {
+        const db = getDb();
+        return db
+            .collection('products')
+            .deleteOne({_id: new mongoDb.ObjectId(prodId)})
+            .then(result => {
+                console.log('Deleted');
+            })
+            .catch(err => {
+                console.log(err)
             });
     }
 }

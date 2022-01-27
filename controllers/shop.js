@@ -13,7 +13,7 @@ exports.getProducts = (req, res, next) => {
     })
     .catch(err => {
         console.log(err);
-    })
+    });
 };
 
 //get an specific product
@@ -95,7 +95,7 @@ exports.postCart = (req, res, next) => {
                 through: {quantity: newQuantity}
             });
         })
-        then(() => {
+        .then(() => {
             res.redirect('/cart');
         })
         .catch(err => console.log(err));
@@ -106,7 +106,7 @@ exports.postCartDeleteProduct = (req, res, next) => {
     req.user
         .getCart()
         .then(cart => {
-            return cart.getProducts({ where: {id: prodID}});
+            return cart.getProducts({ where: {id: prodId}});
         })
         .then(products => {
             const product = products[0];
