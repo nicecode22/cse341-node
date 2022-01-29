@@ -143,3 +143,7 @@ outline-color: #B93CB9;
 .card-actions a {
     margin: 0 0.25rem;
 }
+/*--------------------details-----------------*/
+.img {
+    width: 300px;
+}
