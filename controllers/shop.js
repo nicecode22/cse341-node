@@ -24,9 +24,7 @@ exports.getProduct = (req, res, next) => {
             path: '/products'
         });
     })
-    .catch(err => {
-        console.log(err);
-    });
+    .catch(err => console.log(err));
 };
 
 exports.getIndex = (req, res, next) => {
@@ -56,7 +54,6 @@ exports.getCart = (req, res, next) => {
         .catch(err => console.log(err));
 };
 
-//post cart
 exports.postCart = (req, res, next) => {
     const prodId = req.body.productId;
     Product.findById(prodId)

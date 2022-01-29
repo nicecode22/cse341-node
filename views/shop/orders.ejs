@@ -2,12 +2,10 @@
 <body>
     <%- include('../contain/nav.ejs') %>
     <main>
-        <% if (orders.length <= 0) { %>
-            <h1>Nothing there!</h1>
-        <% } else { %>
+        <% if (orders.length > 0) { %>
             <ul class="orders">
                 <% orders.forEach(order => { %>
-                    <li class="orders__item">
+                    <li class="">
                         <h1>Order - # <%= order._id %></h1>
                         <ul class="orders__products">
                             <% order.items.forEach(product => { %>
@@ -17,6 +15,8 @@
                     </li>
                 <% }); %>
             </ul>
+        <% } else { %>
+            <h1>Nothing there!</h1>
         <% } %>
     </main>
     <%- include('../contain/end.ejs') %>
