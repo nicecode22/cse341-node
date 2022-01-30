@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const Schema = mongoose.Schema; //allows to create more schemas
 
-const prodSchema = new Schema({
+const productSchema = new Schema({
     title: {
         type: String,
         required: true
@@ -26,7 +26,7 @@ const prodSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Product', prodSchema);
+module.exports = mongoose.model('Product', productSchema);
 
 // const mongoDb = require('mongodb');
 // const getDb = require('../help/database').getDb;
