@@ -1,5 +1,5 @@
 const path = require('path');
-const PATH = process.env.PORT || 5000;
+//const PATH = process.env.PORT || 5000;
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -14,7 +14,7 @@ app.set('views', 'views');
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
-
+const authRoutes = require('./routes/auth');
 
 
 app.use(bodyParser.urlencoded({extended: false}));
@@ -31,6 +31,7 @@ app.use((req, res, next) => {
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);
+app.use(authRoutes);
 
 app.use(errorController.getErrorPage);
 
@@ -51,7 +52,7 @@ mongoose
                 user.save();
             }
         });
-        app.listen(PATH);
+        app.listen(3000);
     })
     .catch(err => {
         console.log(err)
