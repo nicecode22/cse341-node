@@ -23,35 +23,31 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
-const { MongoDBStore } = require('connect-mongodb-session');
+//const { cmStore } = require('connect-mongodb-session');
 
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(
-    expSession({secret: 'my secret', resave: false, saveUninitialized: false, store: store })
-    );
+    expSession({
+        secret: 'my secret', 
+        resave: false, 
+        saveUninitialized: false, 
+        store: store 
+    })
+);
 
 app.use((req, res, next) => {
     if (!req.session.user) {
         return next();
     }
-    User.findById('req.user._id')
+    User.findById('req.session.user._id')
     .then(user => {
         req.user = user;
         next();
     })
     .catch(err => console.log(err));
 });
-
-// app.use((req, res, next) => {
-//     User.findById('61f5e0f6effd5bb4844b680a')
-//         .then(user => {
-//             req.session.user = user;
-//             next();
-//         })
-//         .catch(err => console.log(err));
-// });
 
 app.use('/admin', adminRoutes);
 app.use(shopRoutes);

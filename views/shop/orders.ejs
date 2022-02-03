@@ -5,7 +5,7 @@
         <% if (orders.length > 0) { %>
             <ul class="orders">
                 <% orders.forEach(order => { %>
-                    <li class="">
+                    <li>
                         <h1>Order - # <%= order._id %></h1>
                         <ul class="orders__products">
                             <% order.products.forEach(p => { %>
