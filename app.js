@@ -4,10 +4,18 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const expSession = require('express-session');
+const cmStore = require('connect-mongodb-session')(expSession);
 
 const errorController = require('./controllers/error404');
 const User = require('./models/user');
+const MONGODB_URL = 'mongodb+srv://nicecode22:mmczaho947@cluster0.avaa3.mongodb.net/shop?'
+
 const app = express();
+const store = new cmStore({
+    uri: MONGODB_URL,
+    collection: 'sessions'
+});
 
 app.set('view engine', 'ejs');
 app.set('views', 'views');
@@ -15,15 +23,19 @@ app.set('views', 'views');
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
+const { MongoDBStore } = require('connect-mongodb-session');
 
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(
+    expSession({secret: 'my secret', resave: false, saveUninitialized: false, store: store })
+    );
 
 app.use((req, res, next) => {
     User.findById('61f5e0f6effd5bb4844b680a')
         .then(user => {
-            req.user = user;
+            req.session.user = user;
             next();
         })
         .catch(err => console.log(err));
@@ -37,7 +49,7 @@ app.use(errorController.getErrorPage);
 
 mongoose
     .connect(
-        'mongodb+srv://nicecode22:mmczaho947@cluster0.avaa3.mongodb.net/shop?retryWrites=true&w=majority'
+        MONGODB_URL
     )
     .then(result => {
         User.findOne().then( user => {
