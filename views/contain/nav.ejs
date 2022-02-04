@@ -12,7 +12,8 @@
         </ul>
         <ul class="main-header-ul">
             <% if (!isAuthenticated) { %>
-                <li class="main-header-li"><a class="<%= path==='/login' ? 'active' : ''%>" href="/login">Log In</a></li> 
+                <li class="main-header-li"><a class="<%= path==='/login' ? 'active' : ''%>" href="/login">Log In</a></li>
+                <li class="main-header-li"><a class="<%= path==='/signup' ? 'active' : ''%>" href="/signup">Sign Up</a></li> 
             <% } else { %>
                 <li class="main-header-li">
                     <form action="/logout" method="POST">
