@@ -73,7 +73,7 @@ mongoose
         MONGODB_URL
     )
     .then(result => {
-        app.listen(PATH);
+        app.listen(PORT);
     })
     .catch(err => {
         console.log(err)
