@@ -6,7 +6,7 @@ const User = require('../models/user');
 
 const transporter = nodemailer.createTransport(sendgridTransport({
     auth: {
-        api_key: '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'
+        api_key: '' //I eliminated this because sendgrid sent me an email with an Account suspension notice because I upleaded this to github
     }
 }));
 
