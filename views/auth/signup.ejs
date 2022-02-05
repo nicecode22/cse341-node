@@ -4,6 +4,9 @@
     <%- include('../contain/nav.ejs') %>
 
     <main>
+        <% if (errorMessage) { %>
+            <div class="message"><%= errorMessage %></div>
+        <% } %>
         <form class="form" action="/signup" method="POST">
             <div class="form-control">
                 <label for="email">E-Mail</label>

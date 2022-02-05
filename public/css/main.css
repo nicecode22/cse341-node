@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@1&family=Quicksand:wght@300&family=Raleway:wght@200&display=swap');
+
 * {
     padding: 0;
     margin: 0;
@@ -6,7 +8,7 @@
 .main-header {
     width: 100%;
     height: 56px;
-    background-color: #B93CB9;
+    background-color: #57082f;
     padding: 0 30px;
 }
 .main-header-nav {
@@ -18,7 +20,7 @@
 }
 .main-header-ul {
     list-style: none;
-    margin: 0;
+    margin: 0 20px 0;
     display: flex;
 }
 .main-header-li {
@@ -26,37 +28,181 @@
 }
 .main-header-li a {
     text-decoration: none;
-    font-family:sans-serif;
+    font-family: Raleway;
     font-size: 20px;
     color: white;
 }
+.logout-btn:hover,
+.logout-btn:active,
 .main-header-li a:hover,
 .main-header-li a:active,
 .main-header-li a.active {
-    color: #3E1F47;
+    color: #e85e8f;
 }
-/*--------------------------------main---------------------------------*/
+/*--------------------------------Shop/products---------------------------------*/
 main {
     padding: 20px;
 }
-h1 {
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 70px;
-    text-align: center;
-    color: #0B525B;
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
 }
-p {
+.card {
+    box-shadow: 0 2px 8px #3E1F47;
+    width: 30%;
+    margin: 20px;
+}
+.product-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 20px;
+}
+.card-header {
+    grid-column: 1/3;
+    padding: 1rem;
+}
+.prod-title {
+    font-family: 'DM Serif Display';
+    font-size: 30px;
+    text-align: center;
+    color: #b21852;
+    margin: 0;
+}
+.card-image {
+    width: 180px;
+    height: 220px;
+    margin: 0 auto;
+    grid-column: 1/3;
+}
+.card-image img {
+    width: 100%;
+    height: 100%;
+}
+.card-content {
+    grid-column: 1/3;
+    text-align: center;
+    padding: 1rem;
+}
+.prod-price {
+    font-family: 'Quicksand';
+    font-size: 40px;
+    color: #df2063;
+    margin: 0;
+}
+.prod-description {
     font-size: 25px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Quicksand';
+    margin: 0;
 }
-.centered {
+.card-action {
+    grid-column: 1/3;
+    display: flex;
+    margin: 0 auto;
+    padding: 0.25rem;
     text-align: center;
+}
+.card-action .btn,
+.centered .btn,
+.cart .btn,
+.form .btn,
+.logout-btn {
+    background-color: #841040;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Quicksand';
+    margin: 5px;
+    color: white;
+}
+.logout-btn {
+    background-color: #57082f;
+    font-size: 20px;
+    font-family: 'Raleway';
+}
+
+/*----------------------DETAILS-----------------------------------*/
+.centered {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.centered h1{
+    font-family: 'DM Serif Display';
+    text-align: center;
+    grid-column: 1/3;
+}
+.centered hr {
+    grid-column: 1/3;
+    grid-row: 2;
+}
+.centered .img {
+    width: 80%;
+    margin: 30px;
+}
+.centered div {
+    grid-column: 1;
+    grid-row: 3/8;
+}
+.det-price {
+    font-family: 'Quicksand';
+    font-size: 40px;
+    color: #df2063;
+    margin: 0;
+    grid-column: 2;
+    grid-row: 3/4;
+    margin: 30px;
+
+}
+.det-description {
+    font-size: 25px;
+    font-family: 'Quicksand';
+    margin: 0;
+    grid-column: 2;
+    grid-row: 4/7;
+    margin: 0 30px;
+}
+.centered form {
+    grid-column: 2;
+    grid-row: 7/8;
+    margin: 30px;
+}
+/*------------------------Cart--------------------------------------*/
+.cart-li {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'Quicksand';
+    font-size: 15px;
+    list-style: none;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #e85e8f;
+    align-items: center;
+}
+.cart-li h2 {
+    font-size: 25px;
+}
+/*--------------------------------Order-------------------------------*/
+.order div{
+    margin: 50px 20px;
+}
+.order ul {
+    list-style: none;
+}
+.order h1 {
+    font-family: 'DM Serif Display';
+    text-align: center;
+}
+.order li {
+    font-family: 'Quicksand';
+    font-size: 25px;
 }
 /*-------------------------form--------------------------------------*/
 .form {
     width: 20rem;
     max-width: 90%;
     margin: auto;
+    font-family: 'Quicksand';
 }
 .form-control label,
 .form-control input,
@@ -67,15 +213,12 @@ p {
 }
 .form-control input
 .form-control textarea {
-    border: 1px solid #3E1F47;
+    border: 1px solid #57082f;
     border-radius: 5px;
 }
 .form-control input:focus,
 .form-control textarea:focus {
-outline-color: #B93CB9;
-}
-.form-control label {
-    color: #0B525B;
+outline-color: #b21852;
 }
 .form-control {
     margin: 1em 0;
@@ -91,61 +234,27 @@ outline-color: #B93CB9;
     text-decoration: none;
     padding: 10px;
 }
-.btn:hover {
-    background-color: #3E1F47;
-
-}
-.btn:active {
-    background-color: #B93CB9;
+.card-action .btn:hover,
+.centered .btn:hover,
+.cart .btn:hover,
+.form .btn:hover {
+    background-color: #e85e8f;
     color: black;
-}
-/*--------------------------------------------------------------------*/
-.grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: stretch;
-}
 
-.card {
-    box-shadow: 0 2px 8px #3E1F47;
-    width: 30%;
-    margin: 20px;
 }
-
-.card-header,
-.card-content {
-    padding: 1rem;
+.card-action .btn:active,
+.centered .btn:active,
+.cart .btn:active,
+.form .btn:active {
+    background-color: #df2063;
+    color: white;
 }
-
-.card-header h1,
-.card-content h1,
-.card-content h2,
-.card-content p {
-    margin: 0;
-}
-.card-content p {
-    font-size: 20px;
-}
-.card-image {
-    width: 50%;
-    margin: 0 auto;
-}
-
-.card-image img {
-    width: 100%;
-}
-
-.card-actions {
-    padding: 1rem;
+/*---------------------------------MESSAGE-------------------------------*/
+.message {
+    margin: auto;
+    width: 90%;
+    border: 1px solid #e85e8f;
     text-align: center;
-}
-
-.card-actions button,
-.card-actions a {
-    margin: 0 0.25rem;
-}
-/*--------------------details-----------------*/
-.img {
-    width: 300px;
+    padding: 10px;
+    font-family: 'Raleway';
 }
