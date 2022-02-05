@@ -10,10 +10,8 @@
   },
   "author": "mell",
   "license": "ISC",
-  "devDependencies": {
-    "nodemon": "^2.0.15"
-  },
   "dependencies": {
+    "nodemon": "^2.0.15",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.1",
     "connect-flash": "^0.1.1",
