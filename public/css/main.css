@@ -107,7 +107,8 @@ main {
 .centered .btn,
 .cart .btn,
 .form .btn,
-.logout-btn {
+.logout-btn,
+.reset .btn {
     background-color: #841040;
     border: none;
     border-radius: 5px;
@@ -115,6 +116,8 @@ main {
     font-family: 'Quicksand';
     margin: 5px;
     color: white;
+    text-decoration: none;
+    font-size: 20px;
 }
 .logout-btn {
     background-color: #57082f;
@@ -224,16 +227,6 @@ outline-color: #b21852;
     margin: 1em 0;
 }
 /*----------------------------button--------------------------------*/
-.btn {
-    font-size: 20px;
-    color: white;
-    background-color: #0B525B;
-    padding: 5px;
-    border-radius: 5px;
-    margin: 20px;
-    text-decoration: none;
-    padding: 10px;
-}
 .card-action .btn:hover,
 .centered .btn:hover,
 .cart .btn:hover,
@@ -257,4 +250,16 @@ outline-color: #b21852;
     text-align: center;
     padding: 10px;
     font-family: 'Raleway';
+}
+/*------------------------------RESET-----------------------------*/
+.reset {
+    text-align: center;
+}
+.reset a {
+    text-decoration: none;
+    font-family: 'Raleway';
+    color: black;
+}
+.reset a:hover {
+    color: #e85e8f;
 }
