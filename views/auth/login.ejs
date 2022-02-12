@@ -6,7 +6,7 @@
         <% if (errorMessage) { %>
             <div class="message"><%= errorMessage %></div>
         <% } %>
-        <form class="form" action="/login" method="POST">
+        <form class="form" action="/login" method="POST" novalidate>
             <div class="form-control">
                 <label for="email">E-mail</label>
                 <input type="email" name="email" id="email">
