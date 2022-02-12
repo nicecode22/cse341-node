@@ -263,3 +263,7 @@ outline-color: #b21852;
 .reset a:hover {
     color: #e85e8f;
 }
+/*--------------------------invalid---------------------------*/
+.form-control input.invalid {
+    border: 2px solid #841040;
+}

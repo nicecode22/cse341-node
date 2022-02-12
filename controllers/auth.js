@@ -26,7 +26,9 @@ exports.getLogin = (req, res, next) => {
     res.render('auth/login', {
         path: '/login',
         pageTitle: 'Login',
-        errorMessage: message
+        errorMessage: message,
+        oldInput: {email: "", password: ''},
+        validateErrors: []
     });
 }
 
@@ -41,7 +43,8 @@ exports.getSignup = (req, res, next) => {
         path: '/signup',
         pageTitle: 'Sign Up',
         errorMessage: message,
-        oldInput: {email: "", password: '', confirmPassword: ''}
+        oldInput: {email: "", password: '', confirmPassword: ''},
+        validateErrors: []
     });
 };
 
@@ -54,14 +57,21 @@ exports.postLogin = (req, res, next) => {
         return res.status(422).render('auth/login', {
             path: '/login',
             pageTitle: 'Login',
-            errorMessage: errors.array()[0].msg
+            errorMessage: errors.array()[0].msg,
+            oldInput: {email: email, password: req.body.password},
+            validateErrors: errors.array()
         });
     }
     User.findOne({email: email})
         .then(user => {
             if (!user) {
-                req.flash('error', 'Invalid email');
-                return res.redirect('/login');
+                return res.status(422).render('auth/login', {
+                    path: '/login',
+                    pageTitle: 'Login',
+                    errorMessage: 'Invalid email',
+                    oldInput: {email: email, password: req.body.password},
+                    validateErrors: []
+                });
             }
             bcryptjs
                 .compare(password, user.password)
@@ -74,8 +84,13 @@ exports.postLogin = (req, res, next) => {
                         res.redirect('/');
                     });
                 }
-                req.flash('error', 'Invalid password');
-                res.redirect('/login');
+                return res.status(422).render('auth/login', {
+                    path: '/login',
+                    pageTitle: 'Login',
+                    errorMessage: 'Invalid email',
+                    oldInput: {email: email, password: req.body.password},
+                    validateErrors: []
+                });
             })
             .catch(err => {
                 console.log(err)
@@ -95,7 +110,8 @@ exports.postSignup = (req, res, next) => {
             path: '/signup',
             pageTitle: 'Sign Up',
             errorMessage: errors.array()[0].msg,
-            oldInput: {email: email, password: password, confirmPassword: req.body.confirmPassword}
+            oldInput: {email: email, password: password, confirmPassword: req.body.confirmPassword},
+            validateErrors: errors.array()
         });
     }
     bcryptjs
