@@ -68,7 +68,10 @@ exports.postAddProduct = (req, res, next) => {
         //     errorMessage: 'Error database',
         //     validateErrors: []
         // });
-        res.redirect('/500');
+        //res.redirect('/500');
+        const error = new Error(err);
+        error.httpStatusCode = 500;
+        return next(error);
     });
 };
 
@@ -93,7 +96,11 @@ exports.getEditProduct = (req, res, next) => {
                 validateErrors: []
             });
         }) 
-        .catch(err =>console.log(err));  
+        .catch(err => {
+            const error = new Error(err);
+        error.httpStatusCode = 500;
+        return next(error);
+        });     
 };
 
 exports.postEditProduct = (req, res, next) => {
