@@ -11,7 +11,13 @@ const isAuth = require('../middleware/is-auth');
 const router = express.Router();
 
 //admin/add-product => GET
-router.get('/add-product', [
+router.get('/add-product', isAuth, adminController.getAddProduct);
+
+// /admin/products => GET
+router.get('/products', isAuth, adminController.getProducts);
+
+// // /admin/add-product => POST
+router.post('/add-product', [
     body('title')
         .isAlphanumeric()
         .isLength({min: 3})
@@ -23,13 +29,7 @@ router.get('/add-product', [
     body('description')
         .isLength({min: 8, max: 400})
         .trim()
-], isAuth, adminController.getAddProduct);
-
-// /admin/products => GET
-router.get('/products', isAuth, adminController.getProducts);
-
-// // /admin/add-product => POST
-router.post('/add-product', isAuth, adminController.postAddProduct);
+], isAuth, adminController.postAddProduct);
 
 router.get('/edit-product/:productId', isAuth, adminController.getEditProduct);
 
